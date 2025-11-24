@@ -15,7 +15,7 @@ test.beforeEach(async ({ page }) => {
       product.position,
       product.stockAfterClicks
     );
-  }
+  };
   await catalog.navigateToCart();
 });
 

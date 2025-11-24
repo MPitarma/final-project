@@ -32,7 +32,7 @@ test("Add a product to the cart", async ({ page }) => {
       product.position,
       product.stockAfterClicks
     );
-  }
+  };
 //   productsToAdd.forEach(async (product) => {
 //     await catalog.addProductsToCart(
 //       product.name,

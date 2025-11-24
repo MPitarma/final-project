@@ -6,7 +6,7 @@ export class PaymentsPage {
 
     // Static locators
     this.paymentsPageTitle = page.getByTestId('payment-title');
-  }
+  };
 
   //Dynamic Locators
   productName(position) {
@@ -23,7 +23,7 @@ export class PaymentsPage {
 
   async clickOnGoToPayments(){
     test.step('Click on the go to payments button', async()=>{
-      this.goToPaymentsButton.click()
-    })
-  }
+      this.goToPaymentsButton.click();
+    });
+  };
 }

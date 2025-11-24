@@ -41,7 +41,7 @@ export class CartPage {
   async clickOnGoToPayments(){
     test.step('Click on the go to payments button', async()=>{
       this.goToPaymentsButton.click()
-    })
+    });
   };
 
   async validateEmptyCart(){
