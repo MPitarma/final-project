@@ -5,7 +5,7 @@ export class CartPage {
     this.page = page;
 
     // Static locators
-    this.inventoryTab = page.getByTestId('cart-total-value');
+    this.totalPrice = page.getByTestId('cart-total-value');
     this.goToPaymentsButton = page.getByTestId('cart-go-to-payment');
     this.emptyCartMessage = page.getByTestId('cart-empty-message');
   }
@@ -34,18 +34,18 @@ export class CartPage {
         await expect(this.price(position)).toHaveText(price);
         await expect(this.quantity(position)).toHaveText(quantity.toString());
         await expect(this.unitPrice(position)).toHaveText(unitPrice);
-        await expect(this.inventoryTab).toHaveText(totalPrice);
+        await expect(this.totalPrice).toHaveText(totalPrice);
     });
   };
 
   async clickOnGoToPayments(){
-    test.step('Click on the go to payments button', async()=>{
-      this.goToPaymentsButton.click()
+    await test.step('Click on the go to payments button', async()=>{
+      await this.goToPaymentsButton.click()
     });
   };
 
   async validateEmptyCart(){
-    test.step('Validate the cart is empty', async()=>{
+    await test.step('Validate the cart is empty', async()=>{
       await expect(this.emptyCartMessage).toHaveText('Your cart is empty.');
       await expect(this.goToPaymentsButton).toBeHidden();
     });
