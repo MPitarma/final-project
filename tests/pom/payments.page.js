@@ -73,5 +73,11 @@ export class PaymentsPage {
     await test.step('Navigate to the payments page', async()=>{
       await this.paymentsTab.click();
     })
-  }
+  };
+
+  async validateBlockPaymentMessage(actualMessage, expectedMessage) {
+    await test.step("Validate blocked payment message", async () => {
+      await expect(actualMessage).toContain(expectedMessage);
+    });
+  };
 }

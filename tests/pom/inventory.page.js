@@ -40,7 +40,7 @@ export class InventoryPage {
   //Actions and Methods
   async navigateToInventory() {
     await test.step("Navigate to the invenvtory page", async () => {
-      await this.page.goto("/store");
+      await this.page.goto("");
       await this.inventoryTab.click();
     });
   };

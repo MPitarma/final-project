@@ -9,7 +9,8 @@ import { OrdersPage } from "./pom/orders.page";
 test.beforeEach(async ({ page }) => {
   const catalog = new CatalogPage(page);
   const cart = new CartPage(page);
-  await catalog.addProductsToCartAndNavigateToCart();
+  await page.goto("");
+  await catalog.addProductsToCartAndNavigateToCart(true);
   await cart.clickOnGoToPayments();
 });
 
@@ -47,4 +48,16 @@ test("Empty payments page once we comfirm the payment", async ({ page }) => {
   await payments.confirmPayment();
   await payments.navigateToPaymentsPage();
   await payments.validateEmptyPaymentsPage(message);
+});
+
+test("Cant confirm payment without selecting method", async ({ page }) => {
+  const payments = new PaymentsPage(page);
+  const expectedMessage = PAYMENT_DATA.BLOCKED_PAYMENT_MESSAGE;
+  page.once("dialog", async (alert) => {
+    // console.log(`text from alert box: ${alert.message()}`);
+    const actualMessage = alert.message();
+    await payments.validateBlockPaymentMessage(actualMessage, expectedMessage);
+    await alert.accept();
+  });
+  await payments.confirmPayment();
 });

@@ -28,8 +28,8 @@ export class CatalogPage {
 
   //Actions and methods
   async navigateToCatalog() {
-    await test.step("Navigate to the invenvtory page", async () => {
-      await this.page.goto("/store");
+    await test.step("Navigate to the catalog page", async () => {
+      // await this.page.goto("");
       await this.catalogTab.click();
     });
   }
@@ -72,8 +72,7 @@ export class CatalogPage {
     });
   }
 
-  async addProductsToCartAndNavigateToCart() {
-    // const catalog = new CatalogPage(page);
+  async addProductsToCartAndNavigateToCart(navigateToCart) {
     const productsToAdd = CATALOG_CASES.ADD_TO_CART.productData;
     await this.navigateToCatalog();
     for (const product of productsToAdd) {
@@ -84,6 +83,6 @@ export class CatalogPage {
         product.stockAfterClicks
       );
     }
-    await this.navigateToCart();
+    navigateToCart? await this.navigateToCart() : null;
   }
 }
