@@ -6,7 +6,6 @@ export const CATALOG_CASES = {
     buttonText: "Out of Stock",
   },
   ADD_TO_CART: {
-    productsToAdd: "2",
     productsTotalPrice: "10149.96",
     productData: [
       {

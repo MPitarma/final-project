@@ -43,7 +43,6 @@ test("Add product without info and check error message", async ({ page }) => {
   const inventory = new InventoryPage(page);
   const expectedMessage = INVENTORY_CASES.VALIDATE_ERROR_MESSAGE.message;
   page.once("dialog", async (alert) => {
-    console.log(`text from alert box: ${alert.message()}`);
     const actualMessage = alert.message();
     await inventory.validateErrorMessage(actualMessage, expectedMessage);
     await alert.accept();
@@ -56,7 +55,6 @@ test("Increase item quantity", async ({ page }) => {
   const position = 0;
 
   await inventory.checkFirstProductQuantity("2");
-
   await inventory.increaseStockBy1(position);
   await test.step("Validate stock after the increase", async ({ page }) => {
     await inventory.checkFirstProductQuantity("3");
