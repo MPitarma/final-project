@@ -11,10 +11,6 @@ This test suite is divided between 3 types of files we use for our tests
 - Spec files
 - Page Object Models
 
-following the structure below
-
-
-
 ## Test Cases
 In this test suite our test cases are divided by pages and so the list of test cases presents are:
 
