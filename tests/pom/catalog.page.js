@@ -29,7 +29,6 @@ export class CatalogPage {
   //Actions and methods
   async navigateToCatalog() {
     await test.step("Navigate to the catalog page", async () => {
-      // await this.page.goto("");
       await this.catalogTab.click();
     });
   }
@@ -83,6 +82,6 @@ export class CatalogPage {
         product.stockAfterClicks
       );
     }
-    navigateToCart? await this.navigateToCart() : null;
+    navigateToCart ? await this.navigateToCart() : null;
   }
 }

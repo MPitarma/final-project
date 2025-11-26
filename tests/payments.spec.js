@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
   await cart.clickOnGoToPayments();
 });
 
-test("Validate products information", async ({ page }) => {
+test("Validate product information", async ({ page }) => {
   const payments = new PaymentsPage(page);
   const productsToAdd = CATALOG_CASES.ADD_TO_CART.productData;
   productsToAdd.forEach(async (product) => {

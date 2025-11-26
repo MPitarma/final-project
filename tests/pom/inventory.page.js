@@ -23,19 +23,19 @@ export class InventoryPage {
   //Dynamic Locators
   input(inputName) {
     return this.page.getByTestId(`inventory-input-${inputName}`);
-  };
+  }
 
   productQuantityValue(position) {
     return this.page.getByTestId(`inventory-product-quantity-${position}`);
-  };
+  }
 
   increaseButton(position) {
     return this.page.getByTestId(`inventory-product-increase-${position}`);
-  };
+  }
 
   decreaseButton(position) {
     return this.page.getByTestId(`inventory-product-decrease-${position}`);
-  };
+  }
 
   //Actions and Methods
   async navigateToInventory() {
@@ -43,21 +43,21 @@ export class InventoryPage {
       await this.page.goto("");
       await this.inventoryTab.click();
     });
-  };
+  }
 
   async navigateToCatalog() {
     await test.step("Navigate to the invenvtory page", async () => {
       await this.catalogTab.click();
     });
-  };
+  }
 
   async fillInput(inputName, inputValue) {
     await this.input(inputName).fill(inputValue);
-  };
+  }
 
   async addProduct() {
     await this.addProductButton.click();
-  };
+  }
 
   async validateAddedProductInfo(name, price, quantity) {
     await test.step("Validate added product information", async () => {
@@ -65,29 +65,29 @@ export class InventoryPage {
       await expect(this.addedProductPrice).toHaveText(price);
       await expect(this.addedProductQuantity).toHaveText(quantity);
     });
-  };
+  }
 
   async validateErrorMessage(actualMessage, expectedMessage) {
     await test.step("Valdiate error message value", async () => {
       await expect(actualMessage).toContain(expectedMessage);
     });
-  };
+  }
 
   async checkFirstProductQuantity(quantity) {
     await test.step("Check the stock value of the first product", async () => {
       await expect(this.firstProductQuantity).toHaveText(quantity);
     });
-  };
+  }
 
   async increaseStockBy1(position) {
     await test.step("Increase stock by 1", async () => {
-     await this.increaseButton(position).click();
+      await this.increaseButton(position).click();
     });
-  };
+  }
 
   async decreaseStockBy1(position) {
     await test.step("Decrease stock by 1", async () => {
       await this.decreaseButton(position).click();
     });
-  };
+  }
 }

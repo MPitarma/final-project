@@ -24,7 +24,7 @@ test("Add out of stock product to the basket", async ({ page }) => {
   );
 });
 
-test("Add a product to the cart", async ({ page }) => {
+test("Add products to the cart", async ({ page }) => {
   const catalog = new CatalogPage(page);
   const productsToAdd = CATALOG_CASES.ADD_TO_CART.productData;
 
